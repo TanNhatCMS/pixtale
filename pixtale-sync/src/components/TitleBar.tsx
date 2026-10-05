@@ -42,7 +42,7 @@ export default function TitleBar() {
           className="pointer-events-none size-[20px] shrink-0 object-contain"
         />
         <span data-tauri-drag-region className="truncate text-sm">
-          Pixsync
+          Pixtale Sync
           {hostname ? (
             <>
               <span data-tauri-drag-region style={{ marginInline: 6 }}>

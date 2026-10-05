@@ -3,22 +3,6 @@
 version = 4
 
 [[package]]
-name = "Pixsync"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "image",
- "serde",
- "serde_json",
- "sqlx",
- "tauri",
- "tauri-build",
- "tauri-plugin-dialog",
- "tauri-plugin-opener",
- "tauri-plugin-sql",
-]
-
-[[package]]
 name = "adler2"
 version = "2.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2846,6 +2830,22 @@ dependencies = [
  "atomic-waker",
  "fastrand",
  "futures-io",
+]
+
+[[package]]
+name = "pixtale-sync"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "image",
+ "serde",
+ "serde_json",
+ "sqlx",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-dialog",
+ "tauri-plugin-opener",
+ "tauri-plugin-sql",
 ]
 
 [[package]]

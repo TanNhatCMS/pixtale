@@ -119,7 +119,7 @@ export default function AddTaskModal({ open, onClose }: Props) {
     <Dialog open={open} onOpenChange={(nextOpen) => !nextOpen && onClose()}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>添加目录</DialogTitle>
+          <DialogTitle>添加任务</DialogTitle>
           <DialogDescription className="sr-only">
             选择需要同步的本地目录和同步方式
           </DialogDescription>
