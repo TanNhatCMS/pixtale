@@ -55,6 +55,9 @@ fn setup_tray(app: &mut tauri::App) -> tauri::Result<()> {
 /// 启动桌面应用并注册运行时能力。
 pub fn run() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| {
+            show_main_window(app);
+        }))
         .setup(|app| {
             migrate::initialize(app)?;
             setup_tray(app)?;

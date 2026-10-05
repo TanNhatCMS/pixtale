@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
-import { FolderOpen } from "lucide-react";
+import { openUrl } from "@tauri-apps/plugin-opener";
+import { File, FolderOpen } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
@@ -101,8 +102,16 @@ export default function Settings() {
     try {
       await invoke("open_data_directory");
     } catch (error) {
-      console.error("打开数据目录失败", error);
-      toast.error("无法打开数据目录");
+      toast.error(error);
+    }
+  }
+
+  /** 使用系统默认浏览器打开功能说明文档。 */
+  async function openGuide() {
+    try {
+      await openUrl("https://022335.xyz/guide/sync.html");
+    } catch (error) {
+      toast.error(error);
     }
   }
 
@@ -169,6 +178,14 @@ export default function Settings() {
         <Button onClick={() => void openDataDirectory()}>
           <FolderOpen />
           打开目录
+        </Button>
+      </div>
+
+      <div className="flex min-h-16 items-center justify-between gap-6 px-4 py-3">
+        <span className="text-sm font-medium">功能说明</span>
+        <Button onClick={() => void openGuide()}>
+          <File />
+          查看文档
         </Button>
       </div>
     </div>
