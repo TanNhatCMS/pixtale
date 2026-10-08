@@ -110,10 +110,10 @@ export default function Tasks({ syncEnabled }: Props) {
             <div className="flex min-w-0 items-center gap-3">
               <button
                 type="button"
-                className="relative flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-sm text-[#fbc02d] outline-none transition-opacity hover:opacity-75 focus-visible:ring-2 focus-visible:ring-ring"
+                className="relative flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-sm text-[#fbc02d] outline-none transition-opacity hover:opacity-75 focus-visible:ring-2 focus-visible:ring-ring"
                 onClick={() => void openDirectory(item.path)}
               >
-                <RiFolderFill className="size-9" />
+                <RiFolderFill className="size-10" />
                 {item.taskStatus === TaskStatusEnum.SYNCING ? (
                   <span className="absolute right-[-3px] bottom-[-3px] flex size-5 items-center justify-center rounded-full bg-background text-primary shadow-sm">
                     <RefreshCw className="size-3.5 animate-spin" />

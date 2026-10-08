@@ -1,6 +1,5 @@
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import { Minus, Square, X } from "lucide-react";
-import { useUserStore } from "../store/user";
 
 // Tauri 自定义标题栏：提供窗口拖动和基础窗口操作。
 
@@ -23,9 +22,6 @@ function hideWindow() {
 
 /** 渲染带指定背景色的桌面窗口标题栏。 */
 export default function TitleBar() {
-  // 登录端点的主机名，用于区分当前连接的服务。
-  const hostname = useUserStore((state) => state.hostname);
-
   return (
     <div
       data-tauri-drag-region
@@ -43,14 +39,6 @@ export default function TitleBar() {
         />
         <span data-tauri-drag-region className="truncate text-sm">
           Pixtale Sync
-          {hostname ? (
-            <>
-              <span data-tauri-drag-region style={{ marginInline: 6 }}>
-                -
-              </span>
-              <span data-tauri-drag-region>{hostname}</span>
-            </>
-          ) : null}
         </span>
       </div>
       <div className="flex h-full items-stretch">

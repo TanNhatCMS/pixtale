@@ -73,7 +73,6 @@ export default function NavUser({
 }: Props) {
   const { isMobile } = useSidebar();
   const refreshDirectories = useTaskStore((state) => state.refresh);
-  const setUserEndpoint = useUserStore((state) => state.setEndpoint);
   // 登录失效的退出通知，用于触发退出流程。
   const logoutVersion = useUserStore((state) => state.logoutVersion);
   const [loggingIn, setLoggingIn] = useState(false);
@@ -92,13 +91,12 @@ export default function NavUser({
     userService.get().then((localUser) => {
       if (!cancelled) {
         setUser(localUser);
-        setUserEndpoint(localUser?.endpoint ?? "");
       }
     });
     return () => {
       cancelled = true;
     };
-  }, [setUserEndpoint]);
+  }, []);
 
   useEffect(() => {
     if (logoutVersion > 0) {
@@ -116,7 +114,6 @@ export default function NavUser({
       await syncService.stopSync();
       await userService.remove(user.userId);
       setUser(null);
-      setUserEndpoint("");
       await refreshDirectories();
       onLogout();
     } finally {
@@ -185,7 +182,6 @@ export default function NavUser({
 
       await userService.add(localUser);
       setUser(localUser);
-      setUserEndpoint(nextEndpoint);
       await refreshDirectories();
       onLoginOpenChange(false);
       setEndpoint("");
@@ -246,6 +242,11 @@ export default function NavUser({
                     {avatar}
                     <div className="grid min-w-0 flex-1 text-left text-sm">
                       <span className="truncate font-medium">{displayName}</span>
+                      {user.endpoint ? (
+                        <span className="break-all text-xs text-muted-foreground">
+                          {new URL(user.endpoint).hostname}
+                        </span>
+                      ) : null}
                     </div>
                   </div>
                 </DropdownMenuLabel>

@@ -5,7 +5,7 @@ use tauri::{App, Manager};
 // 数据库初始化：使用应用代码版本管理 SQLite schema，不依赖 SQLX migration 表。
 
 /// 当前数据库结构版本，数据库升级时递增这个值。
-pub const DATABASE_VERSION: i64 = 1;
+pub const DATABASE_VERSION: i64 = 20;
 
 const DATABASE_SCHEMA: &str = include_str!("schema.sql");
 

@@ -110,7 +110,7 @@ export default function Settings() {
   /** 使用系统默认浏览器打开功能说明文档。 */
   async function openGuide() {
     try {
-      await openUrl("https://022335.xyz/guide/sync.html");
+      await openUrl("https://docs.022335.xyz/guide/sync.html");
     } catch (error) {
       console.error("打开文档失败", error);
       toast.error("无法打开文档");;
@@ -176,7 +176,7 @@ export default function Settings() {
       </div>
 
       <div className="flex min-h-16 items-center justify-between gap-6 px-4 py-3">
-        <span className="text-sm font-medium">数据存放位置</span>
+        <span className="text-sm font-medium">数据目录</span>
         <Button onClick={() => void openDataDirectory()}>
           <FolderOpen />
           打开目录

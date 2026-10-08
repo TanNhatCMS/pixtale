@@ -102,7 +102,7 @@ const taskService = {
       void useTaskStore.getState().refresh();
 
       // 后台扫描新任务，完成后回写文件数量和总大小。
-      void fileService.scan(path, taskName, taskType)
+      void fileService.scan(path, taskName, taskType, storageId)
         .then(async (directories) => {
           const files = directories.flatMap((directory) => directory.files);
           const itemSize = files.reduce((total, file) => total + file.size, 0);

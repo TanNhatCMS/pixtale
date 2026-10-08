@@ -5,7 +5,7 @@ use tauri_plugin_opener::OpenerExt;
 
 // 同步目录扫描命令，只读取指定目录的当前层文件。
 
-const IMAGE_EXTENSIONS: &[&str] = &["jpg", "jpeg", "png", "webp", "gif", "avif", "tif", "tiff"];
+const IMAGE_EXTENSIONS: &[&str] = &["jpg", "jpeg", "png", "webp", "gif", "avif", "jfif"];
 
 #[derive(Serialize)]
 pub struct FileMetadata {

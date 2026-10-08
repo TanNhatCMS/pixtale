@@ -304,6 +304,7 @@ async function runDirectories(signal: AbortSignal): Promise<void> {
         directory.path,
         directory.name,
         directory.taskType,
+        directory.storageId,
       ).catch(
         /** 目录读取失败时清零总量和完成进度并记录日志，随后跳过当前任务。 */
         async (error: unknown) => {
