@@ -102,7 +102,8 @@ export default function Settings() {
     try {
       await invoke("open_data_directory");
     } catch (error) {
-      toast.error(error);
+      console.error("打开数据目录失败", error);
+      toast.error("无法打开数据目录");
     }
   }
 
@@ -111,7 +112,8 @@ export default function Settings() {
     try {
       await openUrl("https://022335.xyz/guide/sync.html");
     } catch (error) {
-      toast.error(error);
+      console.error("打开文档失败", error);
+      toast.error("无法打开文档");;
     }
   }
 
