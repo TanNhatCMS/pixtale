@@ -337,8 +337,9 @@ async function runDirectories(signal: AbortSignal): Promise<void> {
           retryRequest(() =>
             check(
               files.map(({ name, size }) => ({ name, size })),
-              { showError: false },
+              { showError: false, signal },
             ),
+            signal,
           ),
       );
       const itemSize = getTotalSize(files);
@@ -374,8 +375,9 @@ async function runDirectories(signal: AbortSignal): Promise<void> {
           retryRequest(() =>
             getConfig(
               { albumName: albumNames, storageId: directory.storageId },
-              { showError: false },
+              { showError: false, signal },
             ),
+            signal,
           ),
         false,
       );
