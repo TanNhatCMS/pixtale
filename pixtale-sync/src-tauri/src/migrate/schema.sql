@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS settings (
     task_interval INTEGER NOT NULL DEFAULT 10,
     log_max_count INTEGER NOT NULL DEFAULT 10000,
     task_status INTEGER NOT NULL DEFAULT 2 CHECK (task_status IN (1, 2)),
-    upload_concurrency INTEGER NOT NULL DEFAULT 4 CHECK (upload_concurrency BETWEEN 1 AND 20),
+    upload_concurrency INTEGER NOT NULL DEFAULT 1 CHECK (upload_concurrency BETWEEN 1 AND 20),
     last_sync_at TEXT,
     schema_version INTEGER NOT NULL DEFAULT 0
 );
