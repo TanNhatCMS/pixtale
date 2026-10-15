@@ -180,6 +180,7 @@ async function createPhotoForm(
     type: getImageMimeType(file.name),
   });
   const form = new FormData();
+  form.append("lock", `${Date.now()}-${Math.random()}`);
   form.append("file", photo);
   form.append("albumId", albumId);
   form.append("storageId", storageId);
