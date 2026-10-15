@@ -284,7 +284,9 @@ export default function NavUser({
             </DialogDescription>
           </DialogHeader>
           <form
+            name="login"
             className="flex flex-col gap-4"
+            autoComplete="on"
             onSubmit={(event) => {
               event.preventDefault();
               void handleLogin();
@@ -294,6 +296,7 @@ export default function NavUser({
               <Label htmlFor="endpoint">端点</Label>
               <Input
                 id="endpoint"
+                name="url"
                 value={endpoint}
                 placeholder="https://example.com"
                 autoComplete="url"
@@ -311,6 +314,7 @@ export default function NavUser({
               <Label htmlFor="username">用户名</Label>
               <Input
                 id="username"
+                name="username"
                 value={username}
                 autoComplete="username"
                 aria-invalid={Boolean(usernameError)}
@@ -327,6 +331,7 @@ export default function NavUser({
               <Label htmlFor="password">密码</Label>
               <Input
                 id="password"
+                name="password"
                 type="password"
                 value={password}
                 autoComplete="current-password"
