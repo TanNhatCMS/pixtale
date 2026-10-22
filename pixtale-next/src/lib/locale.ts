@@ -1,6 +1,6 @@
 // 这个模块解析浏览器语言。
 
-// 根据 Accept-Language 中优先级最高的浏览器语言选择中文或英语。
+// 根据 Accept-Language 中优先级最高的浏览器语言选择越南语、中文或英语。
 function resolveLocale(acceptLanguage: string | null | undefined) {
   const languages = (acceptLanguage ?? "")
     .split(",")
@@ -17,6 +17,10 @@ function resolveLocale(acceptLanguage: string | null | undefined) {
     .sort((left, right) => right.quality - left.quality)
 
   const preferredLanguage = languages[0]?.language
+
+  if (preferredLanguage === "vi" || preferredLanguage?.startsWith("vi-")) {
+    return "vi"
+  }
 
   if (preferredLanguage === "zh" || preferredLanguage?.startsWith("zh-")) {
     return "zh"

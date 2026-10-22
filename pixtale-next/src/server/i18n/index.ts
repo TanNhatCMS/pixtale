@@ -1,4 +1,5 @@
 import enMessages from "../../../locales/server/en.json"
+import viMessages from "../../../locales/server/vi.json"
 import zhMessages from "../../../locales/server/zh.json"
 import { getContext } from "hono/context-storage"
 import type { Context, Next } from "hono"
@@ -18,7 +19,7 @@ async function i18nMiddleware(c: Context<HonoEnv>, next: Next): Promise<void> {
 // 根据当前请求语言翻译消息，未配置的消息保持原文。
 function t(message: string): string {
   const locale = getContext<HonoEnv>().get("locale") ?? "en"
-  const messages: Record<MessageKey, string> = locale === "zh" ? zhMessages : enMessages
+  const messages: Record<MessageKey, string> = locale === "zh" ? zhMessages : locale === "vi" ? viMessages : enMessages
   return messages[message as MessageKey] ?? message
 }
 
